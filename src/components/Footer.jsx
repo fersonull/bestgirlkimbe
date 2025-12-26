@@ -74,7 +74,7 @@ const Footer = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="font-greatVibes text-4xl md:text-5xl text-champagne-200 mb-4"
           >
-            Two Hearts, One Soul
+            You Are My Forever
           </motion.p>
 
           <motion.p
@@ -84,7 +84,7 @@ const Footer = () => {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="font-lato text-champagne-300 max-w-2xl mx-auto"
           >
-            Thank you for being part of our love story. Your presence makes our celebration complete.
+            Every day with you is a gift. Thank you for being mine.
           </motion.p>
         </div>
 
@@ -150,25 +150,18 @@ const Footer = () => {
             >
               Gallery
             </a>
-            <span className="text-champagne-400">•</span>
-            <a
-              href="#rsvp"
-              className="text-champagne-300 hover:text-white transition-colors duration-300"
-            >
-              RSVP
-            </a>
           </div>
 
           {/* Copyright */}
           <p className="font-lato text-sm text-champagne-400">
-            &copy; {currentYear} Our Love Story. Made with{' '}
+            &copy; {currentYear} Made with{' '}
             <Heart className="inline w-4 h-4 text-roseGold-400" fill="currentColor" />{' '}
-            for our special day.
+            for the most amazing person in my life
           </p>
 
           {/* Crafted by */}
           <p className="font-lato text-xs text-champagne-500">
-            Designed with elegance and romance
+            You mean the world to me
           </p>
         </motion.div>
       </div>

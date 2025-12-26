@@ -3,7 +3,6 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Story from './components/Story';
 import Gallery from './components/Gallery';
-import RSVPForm from './components/RSVPForm';
 import Footer from './components/Footer';
 
 function App() {
@@ -36,7 +35,6 @@ function App() {
         <Hero />
         <Story />
         <Gallery />
-        <RSVPForm />
       </main>
       <Footer />
     </div>

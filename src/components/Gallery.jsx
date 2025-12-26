@@ -115,11 +115,11 @@ const Gallery = () => {
             id="gallery-heading"
             className="font-cinzel text-4xl sm:text-5xl md:text-6xl text-burgundy-900 mb-6"
           >
-            Our Gallery
+            Our Memories
           </h2>
           
           <p className="font-lato text-lg text-gray-600 max-w-2xl mx-auto">
-            Captured moments of love, joy, and togetherness. Each photograph tells a chapter of our beautiful journey.
+            Every photograph with you is a treasure I'll cherish forever
           </p>
         </motion.div>
 

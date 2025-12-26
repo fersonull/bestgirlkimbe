@@ -19,7 +19,6 @@ const Navbar = () => {
   const navItems = [
     { name: 'Our Story', href: '#story' },
     { name: 'Gallery', href: '#gallery' },
-    { name: 'RSVP', href: '#rsvp' },
   ];
 
   const scrollToSection = (e, href) => {
@@ -72,7 +71,7 @@ const Navbar = () => {
                   isScrolled ? 'text-burgundy-900' : 'text-white drop-shadow-lg'
                 }`}
               >
-                Our Love Story
+                For You
               </span>
             </motion.a>
 

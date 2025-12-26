@@ -67,7 +67,7 @@ const Hero = () => {
           transition={{ duration: 0.8, delay: 0.4 }}
           className="font-greatVibes text-6xl sm:text-7xl md:text-8xl lg:text-9xl text-white mb-6 drop-shadow-2xl"
         >
-          Forever Begins Today
+          For You, My Love
         </motion.h1>
 
         {/* Subheading */}
@@ -78,13 +78,13 @@ const Hero = () => {
           className="space-y-4"
         >
           <p className="font-cinzel text-2xl sm:text-3xl md:text-4xl text-champagne-200 tracking-wider mb-4">
-            Celebrating Our Love Story
+            Every Moment With You Is Magic
           </p>
           
           <div className="flex items-center justify-center space-x-4 text-champagne-300">
             <div className="h-px w-12 bg-champagne-300" />
             <p className="font-lato text-lg sm:text-xl">
-              A Journey of Two Hearts
+              You Are My Everything
             </p>
             <div className="h-px w-12 bg-champagne-300" />
           </div>
@@ -102,9 +102,9 @@ const Hero = () => {
           whileTap={{ scale: 0.95 }}
           onClick={scrollToStory}
           className="mt-12 px-10 py-4 border-2 border-champagne-300 text-champagne-100 font-lato font-medium text-sm uppercase tracking-widest rounded-full hover:bg-champagne-300 hover:text-burgundy-900 transition-all duration-300 backdrop-blur-sm bg-white/10"
-          aria-label="Explore our love story"
+          aria-label="Explore our memories"
         >
-          Explore Our Journey
+          Our Beautiful Moments
         </motion.button>
       </motion.div>
 
