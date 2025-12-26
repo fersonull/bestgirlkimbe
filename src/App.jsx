@@ -5,7 +5,6 @@ import Letter from './components/Letter';
 import Footer from './components/Footer';
 
 function App() {
-  // Add scroll reveal effect for elements
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {

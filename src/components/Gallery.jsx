@@ -50,7 +50,6 @@ const Gallery = () => {
     setSelectedImage(images[newIndex]);
   };
 
-  // Keyboard navigation
   const handleKeyDown = (e) => {
     if (e.key === 'Escape') closeLightbox();
     if (e.key === 'ArrowRight') navigateImage('next');

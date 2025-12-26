@@ -53,12 +53,10 @@ const Hero = () => {
           className="space-y-4 md:space-y-6"
         >
           {heroLines.map((line, index) => {
-            // Empty lines for spacing
             if (line === "") {
               return <div key={index} className="h-4 md:h-6" />;
             }
 
-            // First line is special (greeting)
             if (index === 0) {
               return (
                 <motion.h1
@@ -73,7 +71,6 @@ const Hero = () => {
               );
             }
 
-            // Regular lines
             return (
               <motion.p
                 key={index}

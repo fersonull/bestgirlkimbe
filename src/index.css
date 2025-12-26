@@ -60,14 +60,12 @@ h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-playfair);
 }
 
-/* Glassmorphism utility */
 .glass {
   background-color: rgb(255 255 255 / 0.7);
   backdrop-filter: blur(12px);
   border: 1px solid rgb(255 255 255 / 0.2);
 }
 
-/* Paper texture overlay */
 .paper-texture {
   position: relative;
 }
@@ -84,7 +82,6 @@ h1, h2, h3, h4, h5, h6 {
   z-index: 1;
 }
 
-/* Elegant scroll animation */
 .reveal {
   opacity: 0;
   transform: translateY(2rem);
@@ -96,7 +93,6 @@ h1, h2, h3, h4, h5, h6 {
   transform: translateY(0);
 }
 
-/* Custom scrollbar */
 .scrollbar-thin::-webkit-scrollbar {
   width: 8px;
 }

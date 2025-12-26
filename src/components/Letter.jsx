@@ -174,12 +174,10 @@ const Letter = () => {
               {/* Letter Content */}
               <div className="relative z-10 space-y-6">
                 {letterParagraphs.map((paragraph, index) => {
-                  // Empty lines for spacing
                   if (paragraph === "") {
                     return <div key={index} className="h-4" />;
                   }
 
-                  // First line (greeting) - extra fancy
                   if (index === 0) {
                     return (
                       <motion.h2
@@ -202,7 +200,6 @@ const Letter = () => {
                     );
                   }
 
-                  // Last two lines (signature) - fancy script, right-aligned
                   if (index >= letterParagraphs.length - 2) {
                     return (
                       <motion.p
@@ -218,7 +215,6 @@ const Letter = () => {
                     );
                   }
 
-                  // Regular paragraphs with drop cap on first paragraph
                   const isFirstParagraph = index === 2;
 
                   return (
