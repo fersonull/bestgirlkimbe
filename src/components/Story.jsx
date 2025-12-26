@@ -1,47 +1,50 @@
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { Heart } from 'lucide-react';
+import { Heart, Sparkles } from 'lucide-react';
 
 const Story = () => {
-  const timelineEvents = [
+  // ========================================
+  // ✏️ EDIT YOUR MEMORIES HERE
+  // ========================================
+  const memories = [
     {
       date: 'January 2020',
       title: 'First Meeting',
-      description: 'Our eyes met across the coffee shop, and in that moment, everything changed.',
-      image: 'https://images.unsplash.com/photo-1474552226712-ac0f0961a954?q=80&w=2071&auto=format&fit=crop',
+      memory: 'The day our eyes met and my world changed forever',
     },
     {
       date: 'June 2020',
       title: 'First Date',
-      description: 'A romantic dinner under the stars, where we discovered our shared dreams.',
-      image: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=2070&auto=format&fit=crop',
+      memory: 'When I knew you were the one I wanted to spend forever with',
     },
     {
       date: 'December 2020',
-      title: 'The First I Love You',
-      description: 'During a winter walk, three simple words changed everything.',
-      image: 'https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?q=80&w=2074&auto=format&fit=crop',
+      title: 'First "I Love You"',
+      memory: 'Three words that changed everything between us',
     },
     {
       date: 'August 2023',
       title: 'The Proposal',
-      description: 'On a sunset beach, with the waves as witnesses, you asked me to be yours forever.',
-      image: 'https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=2070&auto=format&fit=crop',
+      memory: 'The moment I asked you to be mine forever',
     },
     {
       date: 'Today',
       title: 'Our Forever',
-      description: 'Every moment with you is a cherished memory in our beautiful story.',
-      image: 'https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?q=80&w=2070&auto=format&fit=crop',
+      memory: 'Every single day with you is my favorite day',
     },
   ];
+  // ========================================
 
   return (
     <section
       id="story"
-      className="py-20 md:py-32 bg-champagne-50 relative overflow-hidden"
+      className="py-20 md:py-32 bg-gradient-to-b from-white via-champagne-50 to-white relative overflow-hidden"
       aria-labelledby="story-heading"
     >
+      {/* Decorative elements */}
+      <div className="absolute top-20 right-20 w-64 h-64 bg-roseGold-200/20 rounded-full blur-3xl" />
+      <div className="absolute bottom-20 left-20 w-64 h-64 bg-burgundy-200/20 rounded-full blur-3xl" />
+
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <motion.div
@@ -58,25 +61,25 @@ const Story = () => {
             transition={{ duration: 0.5 }}
             className="inline-block mb-6"
           >
-            <Heart className="w-10 h-10 text-roseGold-500" fill="currentColor" />
+            <Sparkles className="w-10 h-10 text-roseGold-500" />
           </motion.div>
           
           <h2
             id="story-heading"
             className="font-cinzel text-4xl sm:text-5xl md:text-6xl text-burgundy-900 mb-6"
           >
-            Our Story
+            Our Beautiful Moments
           </h2>
           
           <p className="font-lato text-lg text-gray-600 max-w-2xl mx-auto">
-            These moments with you are everything to me
+            Each memory with you is a treasure in my heart
           </p>
         </motion.div>
 
-        {/* Minimal Timeline Grid */}
-        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {timelineEvents.map((event, index) => (
-            <TimelineCard key={index} event={event} index={index} />
+        {/* Memories Timeline */}
+        <div className="max-w-3xl mx-auto space-y-8">
+          {memories.map((item, index) => (
+            <MemoryCard key={index} item={item} index={index} />
           ))}
         </div>
       </div>
@@ -84,40 +87,37 @@ const Story = () => {
   );
 };
 
-const TimelineCard = ({ event, index }) => {
+const MemoryCard = ({ item, index }) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-50px' });
 
   return (
     <motion.div
       ref={ref}
-      initial={{ opacity: 0, y: 30 }}
-      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+      initial={{ opacity: 0, x: index % 2 === 0 ? -30 : 30 }}
+      animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: index % 2 === 0 ? -30 : 30 }}
       transition={{ duration: 0.6, delay: index * 0.1 }}
       className="group"
     >
-      {/* Minimal Card */}
-      <div className="relative overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
-        {/* Image */}
-        <div className="relative h-64 overflow-hidden">
-          <motion.img
-            src={event.image}
-            alt={event.title}
-            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-            loading="lazy"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-burgundy-900/80 via-burgundy-900/20 to-transparent" />
-          
-          {/* Content Overlay */}
-          <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-            <p className="font-lato text-xs uppercase tracking-wider text-champagne-200 mb-2">
-              {event.date}
+      <div className="glass rounded-2xl p-6 md:p-8 hover:shadow-xl transition-all duration-300 border-l-4 border-roseGold-400">
+        <div className="flex items-start space-x-4">
+          {/* Icon */}
+          <div className="flex-shrink-0 mt-1">
+            <div className="w-10 h-10 rounded-full bg-roseGold-100 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+              <Heart className="w-5 h-5 text-roseGold-600" fill="currentColor" />
+            </div>
+          </div>
+
+          {/* Content */}
+          <div className="flex-1">
+            <p className="font-lato text-xs uppercase tracking-wider text-roseGold-600 mb-2">
+              {item.date}
             </p>
-            <h3 className="font-playfair text-xl md:text-2xl mb-2">
-              {event.title}
+            <h3 className="font-playfair text-xl md:text-2xl text-burgundy-900 mb-3">
+              {item.title}
             </h3>
-            <p className="font-lato text-sm text-champagne-100 leading-relaxed">
-              {event.description}
+            <p className="font-lato text-gray-700 leading-relaxed">
+              {item.memory}
             </p>
           </div>
         </div>

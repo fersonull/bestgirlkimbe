@@ -1,8 +1,8 @@
 import { useEffect } from 'react';
-import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Story from './components/Story';
 import Gallery from './components/Gallery';
+import Letter from './components/Letter';
 import Footer from './components/Footer';
 
 function App() {
@@ -30,11 +30,11 @@ function App() {
 
   return (
     <div className="min-h-screen bg-champagne-50 scrollbar-thin">
-      <Navbar />
       <main>
         <Hero />
         <Story />
         <Gallery />
+        <Letter />
       </main>
       <Footer />
     </div>
