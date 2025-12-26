@@ -6,73 +6,33 @@ const Gallery = () => {
   const [selectedImage, setSelectedImage] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  // ========================================
-  // ✏️ EDIT YOUR CAPTIONS HERE
-  // Your photos are loaded from public/images folder
-  // ========================================
   const images = [
-    {
-      src: '/images/kim1 (1).jpg',
-      alt: 'Our precious moment together',
-      caption: 'Forever with you',
-    },
-    {
-      src: '/images/kim1 (2).jpg',
-      alt: 'Beautiful memory',
-      caption: 'This moment with you',
-    },
-    {
-      src: '/images/kim1 (3).jpg',
-      alt: 'Special time',
-      caption: 'My favorite person',
-    },
-    {
-      src: '/images/kim1 (4).jpg',
-      alt: 'Together',
-      caption: 'Every moment counts',
-    },
-    {
-      src: '/images/kim1 (5).jpg',
-      alt: 'Love',
-      caption: 'You and me',
-    },
-    {
-      src: '/images/kim1 (6).jpg',
-      alt: 'Happiness',
-      caption: 'Pure joy',
-    },
-    {
-      src: '/images/kim1 (7).jpg',
-      alt: 'Us',
-      caption: 'Our story',
-    },
-    {
-      src: '/images/kim1 (8).jpg',
-      alt: 'Memories',
-      caption: 'Treasured moment',
-    },
-    {
-      src: '/images/kim1 (9).jpg',
-      alt: 'Together forever',
-      caption: 'Always with you',
-    },
-    {
-      src: '/images/kim1 (10).jpg',
-      alt: 'Love story',
-      caption: 'My everything',
-    },
-    {
-      src: '/images/kim1 (11).jpg',
-      alt: 'Forever',
-      caption: 'You complete me',
-    },
+    { src: '/images/kim (1).jpg', alt: 'Our precious moment' },
+    { src: '/images/kim (2).jpg', alt: 'Beautiful memory' },
+    { src: '/images/kim (4).jpg', alt: 'Together' },
+    { src: '/images/kim (5).jpg', alt: 'Love' },
+    { src: '/images/kim (6).jpg', alt: 'Happiness' },
+    { src: '/images/kim (7).jpg', alt: 'Us' },
+    { src: '/images/kim (8).jpg', alt: 'Memories' },
+    { src: '/images/kim (9).jpg', alt: 'Together forever' },
+    { src: '/images/kim (10).jpg', alt: 'Love story' },
+    { src: '/images/kim (11).jpg', alt: 'Forever' },
+    { src: '/images/kim1 (1).jpg', alt: 'Sweet moment' },
+    { src: '/images/kim1 (2).jpg', alt: 'With you' },
+    { src: '/images/kim1 (3).jpg', alt: 'My favorite' },
+    { src: '/images/kim1 (4).jpg', alt: 'Every moment' },
+    { src: '/images/kim1 (5).jpg', alt: 'You and me' },
+    { src: '/images/kim1 (6).jpg', alt: 'Pure joy' },
+    { src: '/images/kim1 (7).jpg', alt: 'Our story' },
+    { src: '/images/kim1 (8).jpg', alt: 'Treasured' },
+    { src: '/images/kim1 (9).jpg', alt: 'Always' },
+    { src: '/images/kim1 (10).jpg', alt: 'My everything' },
+    { src: '/images/kim1 (11).jpg', alt: 'Complete me' },
   ];
-  // ========================================
 
   const openLightbox = (index) => {
     setCurrentIndex(index);
     setSelectedImage(images[index]);
-    // Prevent body scroll when lightbox is open
     document.body.style.overflow = 'hidden';
   };
 
@@ -85,7 +45,7 @@ const Gallery = () => {
     const newIndex = direction === 'next'
       ? (currentIndex + 1) % images.length
       : (currentIndex - 1 + images.length) % images.length;
-    
+
     setCurrentIndex(newIndex);
     setSelectedImage(images[newIndex]);
   };
@@ -100,7 +60,7 @@ const Gallery = () => {
   return (
     <section
       id="gallery"
-      className="py-20 md:py-32 bg-gradient-to-b from-white to-champagne-50 relative overflow-hidden"
+      className="py-20 md:py-32 bg-linear-to-b from-white to-champagne-50 relative overflow-hidden"
       aria-labelledby="gallery-heading"
     >
       {/* Decorative elements */}
@@ -125,16 +85,16 @@ const Gallery = () => {
           >
             <Camera className="w-12 h-12 text-roseGold-500" />
           </motion.div>
-          
+
           <h2
             id="gallery-heading"
             className="font-cinzel text-4xl sm:text-5xl md:text-6xl text-burgundy-900 mb-6"
           >
-            Mga Alaala Natin
+            Our Little Moments
           </h2>
-          
+
           <p className="font-lato text-lg text-gray-600 max-w-2xl mx-auto">
-            Bawat larawan ay kayamanan ng ating pag-ibig
+            Mga larawang hindi ako magsasawang buksan
           </p>
         </motion.div>
 
@@ -240,7 +200,7 @@ const Gallery = () => {
                 alt={selectedImage.alt}
                 className="w-full h-full object-contain rounded-lg"
               />
-              
+
               {/* Image counter */}
               <motion.p
                 initial={{ opacity: 0 }}
