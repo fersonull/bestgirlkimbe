@@ -151,24 +151,17 @@ const Gallery = () => {
             >
               <motion.button
                 onClick={() => openLightbox(index)}
-                whileHover={{ scale: 1.03 }}
+                whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                className="relative group w-full overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-shadow duration-300 focus:outline-none focus:ring-4 focus:ring-roseGold-300"
+                className="relative w-full overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-shadow duration-300 focus:outline-none focus:ring-4 focus:ring-roseGold-300 cursor-pointer"
                 aria-label={`View ${image.alt}`}
               >
                 <img
                   src={image.src}
                   alt={image.alt}
-                  className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-110"
+                  className="w-full h-auto object-cover"
                   loading="lazy"
                 />
-                
-                {/* Overlay on hover */}
-                <div className="absolute inset-0 bg-gradient-to-t from-burgundy-900/80 via-burgundy-900/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
-                  <p className="font-lato text-white p-4 md:p-6 text-sm md:text-base">
-                    {image.caption}
-                  </p>
-                </div>
               </motion.button>
             </motion.div>
           ))}
@@ -248,22 +241,12 @@ const Gallery = () => {
                 className="w-full h-full object-contain rounded-lg"
               />
               
-              {/* Caption */}
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3 }}
-                className="text-white text-center mt-4 font-lato text-lg"
-              >
-                {selectedImage.caption}
-              </motion.p>
-              
               {/* Image counter */}
               <motion.p
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.3 }}
-                className="text-white/70 text-center mt-2 font-lato text-sm"
+                className="text-white/70 text-center mt-4 font-lato text-sm"
               >
                 {currentIndex + 1} / {images.length}
               </motion.p>

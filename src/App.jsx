@@ -1,6 +1,5 @@
 import { useEffect } from 'react';
 import Hero from './components/Hero';
-import Story from './components/Story';
 import Gallery from './components/Gallery';
 import Letter from './components/Letter';
 import Footer from './components/Footer';
@@ -32,7 +31,6 @@ function App() {
     <div className="min-h-screen bg-champagne-50 scrollbar-thin">
       <main>
         <Hero />
-        <Story />
         <Gallery />
         <Letter />
       </main>
