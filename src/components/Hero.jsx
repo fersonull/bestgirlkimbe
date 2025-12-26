@@ -111,9 +111,9 @@ const Hero = () => {
           whileTap={{ scale: 0.95 }}
           onClick={scrollToStory}
           className="px-8 py-3 border-2 border-burgundy-900 text-burgundy-900 font-lato font-medium text-sm uppercase tracking-widest rounded-full hover:bg-burgundy-900 hover:text-white transition-all duration-300"
-          aria-label="View our memories"
+          aria-label="Explore"
         >
-          View Our Story
+          Explore
         </motion.button>
       </div>
 
