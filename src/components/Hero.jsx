@@ -2,8 +2,8 @@ import { motion } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
 
 const Hero = () => {
-  const scrollToStory = () => {
-    const element = document.querySelector('#story');
+  const scrollToGallery = () => {
+    const element = document.querySelector('#gallery');
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
@@ -109,7 +109,7 @@ const Hero = () => {
             scale: 1.05,
           }}
           whileTap={{ scale: 0.95 }}
-          onClick={scrollToStory}
+          onClick={scrollToGallery}
           className="px-8 py-3 border-2 border-burgundy-900 text-burgundy-900 font-lato font-medium text-sm uppercase tracking-widest rounded-full hover:bg-burgundy-900 hover:text-white transition-all duration-300"
           aria-label="Explore"
         >
@@ -125,7 +125,7 @@ const Hero = () => {
         className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20"
       >
         <motion.button
-          onClick={scrollToStory}
+          onClick={scrollToGallery}
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 1.5, repeat: Infinity }}
           className="text-burgundy-900/60 hover:text-burgundy-900 transition-colors"
