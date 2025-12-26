@@ -2,24 +2,27 @@ import { motion } from 'framer-motion';
 import { Heart, Sparkles, Star } from 'lucide-react';
 
 const Letter = () => {
-  // ========================================
-  // ✏️ EDIT YOUR LETTER CONTENT HERE
-  // ========================================
+
   const letterParagraphs = [
-    "Mahal Kong Sinta,",
+    "Dear Kimbe,",
     "",
-    "Mula nang makilala kita, ang buhay ko ay nag-iba. Ikaw ang nagbigay ng kulay sa aking mundo, ng init sa aking puso, at ng kahulugan sa bawat araw.",
+    "Happy Anniversary Love! ILOVEYOUUUSUPERRR! also congrats to the both of us for surviving another year! im so so proud of you superrr!",
     "",
-    "Bawat ngiti mo, bawat tawa mo, bawat sandaling kasama kita—lahat ng ito ay kayamanan na hindi ko ipagpapalit kahit sa ano. Ikaw ang liwanag sa aking madilim na gabi, ang awit sa aking katahimikan.",
+    "Sorry for being pasaway loveee, thankyou for your patience sa akinnn kahit alam kong nakakapagod ako i-handle :(",
     "",
-    "Salamat sa pagmamahal mo. Salamat sa pasensya mo. Salamat sa tiwala mo. Salamat sa pagiging ikaw—perpekto sa bawat imperpeksyon.",
+    "Pansin mo ba love, paulit-ulit na picture na nilalagay ko here? pahingi naman ako ng mga pic dyan beh hehe. baka namannn! Hindi ko na makita picture natin nung nag-iloggg, pa-send ulitttt. thanks po, mwaaaa.",
     "",
-    "Nangako ako na aalagaan kita, susuportahan ang iyong mga pangarap, at hahawakan ang iyong kamay sa lahat ng pagsubok na darating sa atin. Ikaw ang aking ngayon at magpakailanman.",
+    "Beh, hindi mo to mababasa, ilalagay ko to sa ilalim ng ref. 'Jo, ano na jo?' HAHAHHAHHAHHAH corny missyou beh. ",
     "",
+    "You know this naman na, pero i will not get tired of reminding you na i am your always kakampi, mapa-illegal man yan or hindi beh. charizzz, siyempre good langs beh, bait kong to, hayyy. ILOVEYOUUUU MY PRETTYY LOVELOVEEE!",
+    "",
+    "Beh, sa truth lang nababaduyan ako sa gawa kong ito. hindi ka ba nagsasawa sa mga gawa kong baduy na website? HAHAHHHHAHAHAHAHAHA",
+    "",
+    "Pero ayun ngaaa, ONE YEAR NA USSSSS! YEYYYYYYYYYY! Keep it up lang beh, charizzz HAHHAHHAHHHAHHA. ILOVEYOUUUUUUUSOMUCHHHHH, HAPPY ANNIVERSARRYYYYYY MWAAAAAAA!",
+
     "Mahal na mahal kita,",
     "Palagi",
   ];
-  // ========================================
 
   return (
     <section
@@ -86,7 +89,7 @@ const Letter = () => {
               >
                 <Heart className="w-32 h-32 text-roseGold-300" fill="currentColor" />
               </motion.div>
-              
+
               <motion.div
                 animate={{
                   scale: [1, 1.15, 1],
@@ -217,7 +220,7 @@ const Letter = () => {
 
                   // Regular paragraphs with drop cap on first paragraph
                   const isFirstParagraph = index === 2;
-                  
+
                   return (
                     <motion.div
                       key={index}

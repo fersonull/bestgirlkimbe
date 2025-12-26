@@ -9,11 +9,8 @@ const Hero = () => {
     }
   };
 
-  // ========================================
-  // ✏️ EDIT YOUR CONTENT HERE
-  // ========================================
   const heroLines = [
-    "To My Love,",
+    "To My Dearest, Kimbe",
     "",
     "Every moment with you",
     "is a beautiful memory.",
@@ -24,12 +21,10 @@ const Hero = () => {
     "",
     "Thank you for being mine.",
   ];
-  // ========================================
-
   return (
     <section
       id="hero"
-      className="relative min-h-screen w-full flex items-center justify-center bg-gradient-to-br from-champagne-50 via-white to-roseGold-50 paper-texture"
+      className="relative min-h-screen w-full flex items-center justify-center bg-linear-to-br from-champagne-50 via-white to-roseGold-50 paper-texture"
       role="banner"
     >
       {/* Decorative background elements */}
