@@ -13,7 +13,7 @@ const Footer = () => {
 
   return (
     <footer
-      className="relative bg-gradient-to-b from-champagne-50 via-burgundy-900 to-burgundy-950 text-white py-16 overflow-hidden"
+      className="relative bg-gradient-to-b from-champagne-50 via-burgundy-800/40 to-burgundy-900/60 text-white py-16 overflow-hidden"
       role="contentinfo"
     >
       {/* Decorative top wave */}
@@ -43,11 +43,11 @@ const Footer = () => {
             className="inline-block mb-8"
           >
             <div className="relative">
-              <Heart className="w-12 h-12 text-champagne-300" fill="currentColor" />
+              <Heart className="w-12 h-12 text-champagne-200/80" fill="currentColor" />
               <motion.div
                 animate={{
                   scale: [1, 1.3, 1],
-                  opacity: [0.4, 0, 0.4],
+                  opacity: [0.3, 0, 0.3],
                 }}
                 transition={{
                   duration: 2.5,
@@ -56,7 +56,7 @@ const Footer = () => {
                 }}
                 className="absolute inset-0"
               >
-                <Heart className="w-12 h-12 text-champagne-300" fill="currentColor" />
+                <Heart className="w-12 h-12 text-champagne-200/60" fill="currentColor" />
               </motion.div>
             </div>
           </motion.div>
@@ -67,7 +67,7 @@ const Footer = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="font-greatVibes text-4xl sm:text-5xl md:text-6xl text-champagne-200 mb-6"
+            className="font-greatVibes text-4xl sm:text-5xl md:text-6xl text-champagne-100/90 mb-6"
           >
             {footerMessage}
           </motion.h3>
@@ -78,7 +78,7 @@ const Footer = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="font-lato text-lg text-champagne-300 mb-8"
+            className="font-lato text-lg text-champagne-100/70 mb-8"
           >
             {footerSubtext}
           </motion.p>
@@ -91,9 +91,9 @@ const Footer = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="flex items-center justify-center space-x-4 mb-8"
           >
-            <div className="h-px w-20 bg-gradient-to-r from-transparent via-champagne-300 to-transparent" />
-            <Heart className="w-3 h-3 text-roseGold-400" fill="currentColor" />
-            <div className="h-px w-20 bg-gradient-to-l from-transparent via-champagne-300 to-transparent" />
+            <div className="h-px w-20 bg-gradient-to-r from-transparent via-champagne-200/40 to-transparent" />
+            <Heart className="w-3 h-3 text-roseGold-300/60" fill="currentColor" />
+            <div className="h-px w-20 bg-gradient-to-l from-transparent via-champagne-200/40 to-transparent" />
           </motion.div>
 
           {/* Simple Copyright */}
@@ -102,10 +102,10 @@ const Footer = () => {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.5 }}
-            className="font-lato text-sm text-champagne-400"
+            className="font-lato text-sm text-champagne-100/50"
           >
             {currentYear} • Made with{' '}
-            <Heart className="inline w-3 h-3 text-roseGold-400 mx-1" fill="currentColor" />
+            <Heart className="inline w-3 h-3 text-roseGold-300/70 mx-1" fill="currentColor" />
             just for you
           </motion.p>
         </div>
