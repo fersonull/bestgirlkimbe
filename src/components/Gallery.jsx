@@ -1,68 +1,101 @@
-import { motion } from 'framer-motion';
-import { Heart, Sparkles, Star, Smile, Sun } from 'lucide-react';
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { X, ChevronLeft, ChevronRight, Camera } from 'lucide-react';
 
 const Gallery = () => {
+  const [selectedImage, setSelectedImage] = useState(null);
+  const [currentIndex, setCurrentIndex] = useState(0);
+
   // ========================================
-  // ✏️ EDIT YOUR REASONS HERE
+  // ✏️ EDIT YOUR GALLERY IMAGES HERE
+  // Replace these URLs with your own photos
   // ========================================
-  const reasons = [
+  const images = [
     {
-      icon: Heart,
-      title: 'Your Smile',
-      description: 'It lights up my entire world and makes everything better',
+      src: 'https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=2070&auto=format&fit=crop',
+      alt: 'Romantic couple moment',
+      caption: 'A moment frozen in time',
     },
     {
-      icon: Sparkles,
-      title: 'Your Kindness',
-      description: 'The way you care for everyone around you is truly beautiful',
+      src: 'https://images.unsplash.com/photo-1606800052052-a08af7148866?q=80&w=2070&auto=format&fit=crop',
+      alt: 'Wedding celebration',
+      caption: 'Our special day',
     },
     {
-      icon: Star,
-      title: 'Your Laugh',
-      description: 'The most magical sound I have ever heard',
+      src: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=2069&auto=format&fit=crop',
+      alt: 'Romantic dinner',
+      caption: 'Candlelit memories',
     },
     {
-      icon: Sun,
-      title: 'Your Warmth',
-      description: 'You make every place feel like home',
+      src: 'https://images.unsplash.com/photo-1469371670807-013ccf25f16a?q=80&w=2070&auto=format&fit=crop',
+      alt: 'Beach sunset',
+      caption: 'Sunset walks together',
     },
     {
-      icon: Smile,
-      title: 'Your Spirit',
-      description: 'Your positive energy is contagious and inspiring',
+      src: 'https://images.unsplash.com/photo-1522673607200-164d1b6ce486?q=80&w=2070&auto=format&fit=crop',
+      alt: 'Engagement rings',
+      caption: 'Forever begins',
     },
     {
-      icon: Heart,
-      title: 'Your Love',
-      description: 'The way you love me makes me want to be a better person',
+      src: 'https://images.unsplash.com/photo-1525258437598-0447b1da1fcb?q=80&w=2070&auto=format&fit=crop',
+      alt: 'Wedding bouquet',
+      caption: 'Blooming love',
     },
     {
-      icon: Sparkles,
-      title: 'Your Dreams',
-      description: 'I love supporting your ambitions and watching you shine',
+      src: 'https://images.unsplash.com/photo-1460978812857-470ed1c77af0?q=80&w=2069&auto=format&fit=crop',
+      alt: 'Couple dancing',
+      caption: 'Dancing through life',
     },
     {
-      icon: Star,
-      title: 'Your Presence',
-      description: 'Just being near you makes everything feel right',
+      src: 'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?q=80&w=2070&auto=format&fit=crop',
+      alt: 'Wedding venue',
+      caption: 'Where dreams came true',
     },
     {
-      icon: Heart,
-      title: 'Everything About You',
-      description: 'From your quirks to your strengths, I love all of you',
+      src: 'https://images.unsplash.com/photo-1583939003579-730e3918a45a?q=80&w=2070&auto=format&fit=crop',
+      alt: 'Couple portrait',
+      caption: 'Two souls, one heart',
     },
   ];
   // ========================================
 
+  const openLightbox = (index) => {
+    setCurrentIndex(index);
+    setSelectedImage(images[index]);
+    // Prevent body scroll when lightbox is open
+    document.body.style.overflow = 'hidden';
+  };
+
+  const closeLightbox = () => {
+    setSelectedImage(null);
+    document.body.style.overflow = 'unset';
+  };
+
+  const navigateImage = (direction) => {
+    const newIndex = direction === 'next'
+      ? (currentIndex + 1) % images.length
+      : (currentIndex - 1 + images.length) % images.length;
+    
+    setCurrentIndex(newIndex);
+    setSelectedImage(images[newIndex]);
+  };
+
+  // Keyboard navigation
+  const handleKeyDown = (e) => {
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowRight') navigateImage('next');
+    if (e.key === 'ArrowLeft') navigateImage('prev');
+  };
+
   return (
     <section
       id="gallery"
-      className="py-20 md:py-32 bg-gradient-to-b from-white via-roseGold-50/30 to-white relative overflow-hidden"
+      className="py-20 md:py-32 bg-gradient-to-b from-white to-champagne-50 relative overflow-hidden"
       aria-labelledby="gallery-heading"
     >
       {/* Decorative elements */}
-      <div className="absolute top-40 left-10 w-72 h-72 bg-champagne-200/30 rounded-full blur-3xl" />
-      <div className="absolute bottom-40 right-10 w-72 h-72 bg-burgundy-200/20 rounded-full blur-3xl" />
+      <div className="absolute top-40 right-20 w-64 h-64 bg-roseGold-200/20 rounded-full blur-3xl" />
+      <div className="absolute bottom-40 left-20 w-64 h-64 bg-burgundy-200/20 rounded-full blur-3xl" />
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
@@ -74,102 +107,161 @@ const Gallery = () => {
           className="text-center mb-16"
         >
           <motion.div
-            initial={{ scale: 0, rotate: -180 }}
-            whileInView={{ scale: 1, rotate: 0 }}
+            initial={{ scale: 0 }}
+            whileInView={{ scale: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.5 }}
             className="inline-block mb-6"
           >
-            <div className="relative">
-              <Heart className="w-12 h-12 text-roseGold-500" fill="currentColor" />
-              <motion.div
-                animate={{
-                  scale: [1, 1.3, 1],
-                  opacity: [0.5, 0, 0.5],
-                }}
-                transition={{
-                  duration: 2,
-                  repeat: Infinity,
-                  ease: 'easeInOut',
-                }}
-                className="absolute inset-0"
-              >
-                <Heart className="w-12 h-12 text-roseGold-400" fill="currentColor" />
-              </motion.div>
-            </div>
+            <Camera className="w-12 h-12 text-roseGold-500" />
           </motion.div>
           
           <h2
             id="gallery-heading"
             className="font-cinzel text-4xl sm:text-5xl md:text-6xl text-burgundy-900 mb-6"
           >
-            Why I Love You
+            Mga Alaala Natin
           </h2>
           
           <p className="font-lato text-lg text-gray-600 max-w-2xl mx-auto">
-            There are countless reasons, but here are just a few...
+            Bawat larawan ay kayamanan ng ating pag-ibig
           </p>
         </motion.div>
 
-        {/* Reasons Grid */}
-        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-          {reasons.map((reason, index) => (
-            <ReasonCard key={index} reason={reason} index={index} />
+        {/* Masonry Grid */}
+        <div className="columns-1 sm:columns-2 lg:columns-3 gap-4 md:gap-6 space-y-4 md:space-y-6">
+          {images.map((image, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              className="break-inside-avoid"
+            >
+              <motion.button
+                onClick={() => openLightbox(index)}
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.98 }}
+                className="relative group w-full overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-shadow duration-300 focus:outline-none focus:ring-4 focus:ring-roseGold-300"
+                aria-label={`View ${image.alt}`}
+              >
+                <img
+                  src={image.src}
+                  alt={image.alt}
+                  className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-110"
+                  loading="lazy"
+                />
+                
+                {/* Overlay on hover */}
+                <div className="absolute inset-0 bg-gradient-to-t from-burgundy-900/80 via-burgundy-900/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+                  <p className="font-lato text-white p-4 md:p-6 text-sm md:text-base">
+                    {image.caption}
+                  </p>
+                </div>
+              </motion.button>
+            </motion.div>
           ))}
         </div>
-
-        {/* Bottom Message */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.5 }}
-          className="text-center mt-16"
-        >
-          <p className="font-greatVibes text-3xl md:text-4xl text-burgundy-900">
-            And a million more reasons every single day...
-          </p>
-        </motion.div>
       </div>
+
+      {/* Lightbox Modal */}
+      <AnimatePresence>
+        {selectedImage && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="fixed inset-0 bg-black/95 z-50 flex items-center justify-center p-4"
+            onClick={closeLightbox}
+            onKeyDown={handleKeyDown}
+            tabIndex={0}
+            role="dialog"
+            aria-modal="true"
+            aria-label="Image lightbox"
+          >
+            {/* Close button */}
+            <motion.button
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.2 }}
+              onClick={closeLightbox}
+              className="absolute top-4 right-4 p-3 bg-white/10 backdrop-blur-sm rounded-full hover:bg-white/20 transition-colors z-50 focus:outline-none focus:ring-4 focus:ring-white/50"
+              aria-label="Close lightbox"
+            >
+              <X className="w-6 h-6 text-white" />
+            </motion.button>
+
+            {/* Previous button */}
+            <motion.button
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.2 }}
+              onClick={(e) => {
+                e.stopPropagation();
+                navigateImage('prev');
+              }}
+              className="absolute left-4 p-3 bg-white/10 backdrop-blur-sm rounded-full hover:bg-white/20 transition-colors focus:outline-none focus:ring-4 focus:ring-white/50"
+              aria-label="Previous image"
+            >
+              <ChevronLeft className="w-6 h-6 text-white" />
+            </motion.button>
+
+            {/* Next button */}
+            <motion.button
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.2 }}
+              onClick={(e) => {
+                e.stopPropagation();
+                navigateImage('next');
+              }}
+              className="absolute right-4 p-3 bg-white/10 backdrop-blur-sm rounded-full hover:bg-white/20 transition-colors focus:outline-none focus:ring-4 focus:ring-white/50"
+              aria-label="Next image"
+            >
+              <ChevronRight className="w-6 h-6 text-white" />
+            </motion.button>
+
+            {/* Image */}
+            <motion.div
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.8, opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              className="max-w-7xl max-h-[90vh] w-full"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <img
+                src={selectedImage.src}
+                alt={selectedImage.alt}
+                className="w-full h-full object-contain rounded-lg"
+              />
+              
+              {/* Caption */}
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3 }}
+                className="text-white text-center mt-4 font-lato text-lg"
+              >
+                {selectedImage.caption}
+              </motion.p>
+              
+              {/* Image counter */}
+              <motion.p
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.3 }}
+                className="text-white/70 text-center mt-2 font-lato text-sm"
+              >
+                {currentIndex + 1} / {images.length}
+              </motion.p>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
-  );
-};
-
-const ReasonCard = ({ reason, index }) => {
-  const Icon = reason.icon;
-
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.5, delay: index * 0.05 }}
-      whileHover={{ y: -5 }}
-      className="group"
-    >
-      <div className="h-full glass rounded-2xl p-6 md:p-8 hover:shadow-xl transition-all duration-300">
-        {/* Icon */}
-        <motion.div
-          whileHover={{ rotate: [0, -10, 10, -10, 0] }}
-          transition={{ duration: 0.5 }}
-          className="inline-block mb-4"
-        >
-          <div className="w-14 h-14 rounded-full bg-gradient-to-br from-roseGold-100 to-champagne-100 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-            <Icon className="w-7 h-7 text-roseGold-600" />
-          </div>
-        </motion.div>
-
-        {/* Title */}
-        <h3 className="font-playfair text-xl md:text-2xl text-burgundy-900 mb-3">
-          {reason.title}
-        </h3>
-
-        {/* Description */}
-        <p className="font-lato text-gray-700 leading-relaxed">
-          {reason.description}
-        </p>
-      </div>
-    </motion.div>
   );
 };
 
