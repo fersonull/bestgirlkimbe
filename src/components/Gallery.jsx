@@ -7,54 +7,64 @@ const Gallery = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   // ========================================
-  // ✏️ EDIT YOUR GALLERY IMAGES HERE
-  // Replace these URLs with your own photos
+  // ✏️ EDIT YOUR CAPTIONS HERE
+  // Your photos are loaded from public/images folder
   // ========================================
   const images = [
     {
-      src: 'https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=2070&auto=format&fit=crop',
-      alt: 'Romantic couple moment',
-      caption: 'A moment frozen in time',
+      src: '/images/kim1 (1).jpg',
+      alt: 'Our precious moment together',
+      caption: 'Forever with you',
     },
     {
-      src: 'https://images.unsplash.com/photo-1606800052052-a08af7148866?q=80&w=2070&auto=format&fit=crop',
-      alt: 'Wedding celebration',
-      caption: 'Our special day',
+      src: '/images/kim1 (2).jpg',
+      alt: 'Beautiful memory',
+      caption: 'This moment with you',
     },
     {
-      src: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=2069&auto=format&fit=crop',
-      alt: 'Romantic dinner',
-      caption: 'Candlelit memories',
+      src: '/images/kim1 (3).jpg',
+      alt: 'Special time',
+      caption: 'My favorite person',
     },
     {
-      src: 'https://images.unsplash.com/photo-1469371670807-013ccf25f16a?q=80&w=2070&auto=format&fit=crop',
-      alt: 'Beach sunset',
-      caption: 'Sunset walks together',
+      src: '/images/kim1 (4).jpg',
+      alt: 'Together',
+      caption: 'Every moment counts',
     },
     {
-      src: 'https://images.unsplash.com/photo-1522673607200-164d1b6ce486?q=80&w=2070&auto=format&fit=crop',
-      alt: 'Engagement rings',
-      caption: 'Forever begins',
+      src: '/images/kim1 (5).jpg',
+      alt: 'Love',
+      caption: 'You and me',
     },
     {
-      src: 'https://images.unsplash.com/photo-1525258437598-0447b1da1fcb?q=80&w=2070&auto=format&fit=crop',
-      alt: 'Wedding bouquet',
-      caption: 'Blooming love',
+      src: '/images/kim1 (6).jpg',
+      alt: 'Happiness',
+      caption: 'Pure joy',
     },
     {
-      src: 'https://images.unsplash.com/photo-1460978812857-470ed1c77af0?q=80&w=2069&auto=format&fit=crop',
-      alt: 'Couple dancing',
-      caption: 'Dancing through life',
+      src: '/images/kim1 (7).jpg',
+      alt: 'Us',
+      caption: 'Our story',
     },
     {
-      src: 'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?q=80&w=2070&auto=format&fit=crop',
-      alt: 'Wedding venue',
-      caption: 'Where dreams came true',
+      src: '/images/kim1 (8).jpg',
+      alt: 'Memories',
+      caption: 'Treasured moment',
     },
     {
-      src: 'https://images.unsplash.com/photo-1583939003579-730e3918a45a?q=80&w=2070&auto=format&fit=crop',
-      alt: 'Couple portrait',
-      caption: 'Two souls, one heart',
+      src: '/images/kim1 (9).jpg',
+      alt: 'Together forever',
+      caption: 'Always with you',
+    },
+    {
+      src: '/images/kim1 (10).jpg',
+      alt: 'Love story',
+      caption: 'My everything',
+    },
+    {
+      src: '/images/kim1 (11).jpg',
+      alt: 'Forever',
+      caption: 'You complete me',
     },
   ];
   // ========================================

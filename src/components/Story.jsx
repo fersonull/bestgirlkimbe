@@ -1,38 +1,34 @@
-import { useRef } from 'react';
-import { motion, useInView } from 'framer-motion';
-import { Heart, Sparkles } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { Music, Heart } from 'lucide-react';
 
 const Story = () => {
   // ========================================
-  // ✏️ EDIT YOUR MEMORIES HERE
+  // ✏️ EDIT YOUR SONG LYRICS HERE
+  // Add the song that reminds you of her
   // ========================================
-  const memories = [
-    {
-      date: 'January 2020',
-      title: 'First Meeting',
-      memory: 'The day our eyes met and my world changed forever',
-    },
-    {
-      date: 'June 2020',
-      title: 'First Date',
-      memory: 'When I knew you were the one I wanted to spend forever with',
-    },
-    {
-      date: 'December 2020',
-      title: 'First "I Love You"',
-      memory: 'Three words that changed everything between us',
-    },
-    {
-      date: 'August 2023',
-      title: 'The Proposal',
-      memory: 'The moment I asked you to be mine forever',
-    },
-    {
-      date: 'Today',
-      title: 'Our Forever',
-      memory: 'Every single day with you is my favorite day',
-    },
+  const songTitle = "Your Song Title Here";
+  const artist = "Artist Name";
+  
+  const lyrics = [
+    "First line of the song",
+    "Second line of the song",
+    "",
+    "Next verse line 1",
+    "Next verse line 2",
+    "Next verse line 3",
+    "",
+    "Chorus line 1",
+    "Chorus line 2",
+    "Chorus line 3",
+    "",
+    "More lyrics here",
+    "Keep adding lines",
+    "",
+    "Final lines",
+    "That mean the most",
   ];
+  
+  const dedication = "Kapag naririnig ko ang kantang ito, ikaw agad ang pumapasok sa isip ko. Bawat linya ay parang sinusulat para sa'yo.";
   // ========================================
 
   return (
@@ -46,83 +42,119 @@ const Story = () => {
       <div className="absolute bottom-20 left-20 w-64 h-64 bg-burgundy-200/20 rounded-full blur-3xl" />
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-20"
-        >
+        <div className="max-w-4xl mx-auto">
+          {/* Section Header */}
           <motion.div
-            initial={{ scale: 0 }}
-            whileInView={{ scale: 1 }}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="inline-block mb-6"
+            transition={{ duration: 0.8 }}
+            className="text-center mb-12"
           >
-            <Sparkles className="w-10 h-10 text-roseGold-500" />
+            <motion.div
+              initial={{ scale: 0, rotate: -180 }}
+              whileInView={{ scale: 1, rotate: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="inline-block mb-6"
+            >
+              <Music className="w-12 h-12 text-roseGold-500" />
+            </motion.div>
+            
+            <h2
+              id="story-heading"
+              className="font-cinzel text-4xl sm:text-5xl md:text-6xl text-burgundy-900 mb-4"
+            >
+              Ang Kanta Natin
+            </h2>
+            
+            <p className="font-lato text-lg text-gray-600 max-w-2xl mx-auto italic">
+              {dedication}
+            </p>
           </motion.div>
-          
-          <h2
-            id="story-heading"
-            className="font-cinzel text-4xl sm:text-5xl md:text-6xl text-burgundy-900 mb-6"
-          >
-            Our Beautiful Moments
-          </h2>
-          
-          <p className="font-lato text-lg text-gray-600 max-w-2xl mx-auto">
-            Each memory with you is a treasure in my heart
-          </p>
-        </motion.div>
 
-        {/* Memories Timeline */}
-        <div className="max-w-3xl mx-auto space-y-8">
-          {memories.map((item, index) => (
-            <MemoryCard key={index} item={item} index={index} />
-          ))}
+          {/* Song Card */}
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="glass rounded-3xl shadow-2xl p-8 md:p-12 lg:p-16 paper-texture"
+          >
+            {/* Song Title & Artist */}
+            <div className="text-center mb-12 pb-8 border-b-2 border-burgundy-200">
+              <motion.div
+                initial={{ scale: 0 }}
+                whileInView={{ scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.4 }}
+                className="inline-block mb-4"
+              >
+                <div className="w-16 h-16 rounded-full bg-roseGold-100 flex items-center justify-center">
+                  <Music className="w-8 h-8 text-roseGold-600" />
+                </div>
+              </motion.div>
+              
+              <motion.h3
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.5 }}
+                className="font-playfair text-3xl md:text-4xl text-burgundy-900 mb-2"
+              >
+                "{songTitle}"
+              </motion.h3>
+              
+              <motion.p
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.6 }}
+                className="font-lato text-lg text-gray-600"
+              >
+                by {artist}
+              </motion.p>
+            </div>
+
+            {/* Lyrics */}
+            <div className="space-y-4">
+              {lyrics.map((line, index) => {
+                // Empty lines for spacing between verses
+                if (line === "") {
+                  return <div key={index} className="h-6" />;
+                }
+
+                return (
+                  <motion.p
+                    key={index}
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: 0.7 + index * 0.05 }}
+                    className="font-lato text-lg md:text-xl text-gray-700 leading-relaxed text-center"
+                  >
+                    {line}
+                  </motion.p>
+                );
+              })}
+            </div>
+
+            {/* Bottom decoration */}
+            <motion.div
+              initial={{ scaleX: 0 }}
+              whileInView={{ scaleX: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 1 }}
+              className="flex items-center justify-center space-x-4 mt-12 pt-8 border-t-2 border-burgundy-200"
+            >
+              <div className="h-px w-20 bg-gradient-to-r from-transparent via-burgundy-300 to-transparent" />
+              <Heart className="w-4 h-4 text-roseGold-400" fill="currentColor" />
+              <div className="h-px w-20 bg-gradient-to-l from-transparent via-burgundy-300 to-transparent" />
+            </motion.div>
+          </motion.div>
         </div>
       </div>
     </section>
-  );
-};
-
-const MemoryCard = ({ item, index }) => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-50px' });
-
-  return (
-    <motion.div
-      ref={ref}
-      initial={{ opacity: 0, x: index % 2 === 0 ? -30 : 30 }}
-      animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: index % 2 === 0 ? -30 : 30 }}
-      transition={{ duration: 0.6, delay: index * 0.1 }}
-      className="group"
-    >
-      <div className="glass rounded-2xl p-6 md:p-8 hover:shadow-xl transition-all duration-300 border-l-4 border-roseGold-400">
-        <div className="flex items-start space-x-4">
-          {/* Icon */}
-          <div className="flex-shrink-0 mt-1">
-            <div className="w-10 h-10 rounded-full bg-roseGold-100 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-              <Heart className="w-5 h-5 text-roseGold-600" fill="currentColor" />
-            </div>
-          </div>
-
-          {/* Content */}
-          <div className="flex-1">
-            <p className="font-lato text-xs uppercase tracking-wider text-roseGold-600 mb-2">
-              {item.date}
-            </p>
-            <h3 className="font-playfair text-xl md:text-2xl text-burgundy-900 mb-3">
-              {item.title}
-            </h3>
-            <p className="font-lato text-gray-700 leading-relaxed">
-              {item.memory}
-            </p>
-          </div>
-        </div>
-      </div>
-    </motion.div>
   );
 };
 
