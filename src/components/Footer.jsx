@@ -4,16 +4,13 @@ import { Heart } from 'lucide-react';
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
-  // ========================================
-  // ✏️ EDIT YOUR FOOTER MESSAGE HERE
-  // ========================================
-  const footerMessage = "You Are My Forever";
+
+  const footerMessage = "For the  girl i love the most, Kimbe";
   const footerSubtext = "Every day with you is a gift. Thank you for being mine.";
-  // ========================================
 
   return (
     <footer
-      className="relative bg-gradient-to-b from-champagne-50 via-burgundy-800/40 to-burgundy-900/60 text-white py-16 overflow-hidden"
+      className="relative bg-linear-to-b from-champagne-50 via-burgundy-800/40 to-burgundy-900/60 text-white py-16 overflow-hidden"
       role="contentinfo"
     >
       {/* Decorative top wave */}
@@ -104,9 +101,9 @@ const Footer = () => {
             transition={{ duration: 0.8, delay: 0.5 }}
             className="font-lato text-sm text-champagne-100/50"
           >
-            {currentYear} • Made with{' '}
+            Made with{' '}
             <Heart className="inline w-3 h-3 text-roseGold-300/70 mx-1" fill="currentColor" />
-            just for you
+            just for you, yieee
           </motion.p>
         </div>
       </div>
