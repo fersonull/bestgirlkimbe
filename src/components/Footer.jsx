@@ -5,7 +5,7 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
 
-  const footerMessage = "For the  girl i love the most, Kimbe";
+  const footerMessage = "Happy 1 year of love, My pretty Kimbe!";
   const footerSubtext = "Every day with you is a gift. Thank you for being mine.";
 
   return (
